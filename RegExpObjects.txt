@@ -35,3 +35,48 @@ Sample Example on Execute method.
 '*******************************************************
 In above example we are trying to find the pattern "lucky" in the given string "MS dhoni is very lucky cricketer". 
 We are also printing the position where the match is found.
+
+'===============================================================================================================================================================
+
+Sample Example for Case Sensitive Search
+
+'*****************************************************
+ Set regExpObject = New RegExp  
+  search_string = "My Name is piyush chandana and my father's name is Mr. Vishan Kumar Chandana."
+  regExpObject.Pattern = "chandana"
+
+  regExpObject.Ignorecase = False
+  regExpObject.Global = true
+ 
+ Set matches  = regExpObject.execute(search_string)
+
+ Print matches.count
+ 
+ For each match in matches
+	print  match.firstIndex & " - " & match.value
+ Next
+
+'*****************************************************
+'================================================================================================================================================================ 
+ Sample Example for Case insensitive Search
+
+'*****************************************************
+ Set regExpObject = New RegExp  
+  search_string = "My Name is piyush chandana and my father's name is Mr. Vishan Kumar Chandana."
+  regExpObject.Pattern = "chandana"
+
+  regExpObject.Ignorecase = True
+  regExpObject.Global = true
+ 
+ Set matches  = regExpObject.execute(search_string)
+	
+ Print matches.count
+ 
+ For each match in matches
+	print  match.firstIndex & " - " & match.value
+ Next
+
+ '*****************************************************
+ 
+ 
+
