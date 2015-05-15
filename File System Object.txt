@@ -1,0 +1,65 @@
+File system object is used to access the computer's file system in QTP. You can read, edit, delete files using this object. 
+You can also create/ delete folders using this object in QTP.
+
+Most important methods of Filesystemobject
+
+CopyFile Method ----------->copies file from one location to other with option to overwrite existing file
+CopyFolder Method---------->copies folder and its contents from one location to other with option to overwrite existing folder
+CreateFolder Method-------->creates a new folder. If the folder already exists, error occurs. So before creating a folder, check for its existance
+CreateTextFile Method------>creates a new file and returns the textstream object with option to overwrite and format mode (Ascii or unicode)
+DeleteFile Method---------->deletes the specified file. Error occurs if the given file does not exist
+DeleteFolder Method-------->deletes the specified folder. Error occurs if the given folder does not exist
+DriveExists Method--------->returns true if the given drive exists in the system else returns false
+FileExists Method---------->returns true if the given file exists in the system else returns false
+FolderExists Method-------->returns true if the given folder exists in the system else returns false
+GetDrive Method------------>returns drive object for the given drive
+GetFile Method------------->returns file object for the given file
+GetFolder Method----------->returns folder object for the given folder
+MoveFile Method------------>moves file from one location to another
+MoveFolder Method---------->moves folder and it's contents from one location to another
+OpenTextFile Method-------->opens the text file and returns the textstream object with option of iomode, create new file and format mode(ascii/unicode)
+
+GetDriveName Method-------->gets the drive name for the given path
+GetFileName Method--------->gets the file name (last component ) for the given path
+GetExtensionName Method---->gets the extension for the given path like txt, mp3 etc
+GetAbsolutePathName Method->gets the complete path for the given relative/absolute path
+GetBaseName Method--------->gets the name of file (last component) excluding extension
+GetParentFolderName Method->Gets the name of parent folder
+
+
+File system object has only one property 
+Drives Property------------>returns the collection of the drives objects in the system
+
+'=========================================================================================================================
+
+File System object examples - 
+
+Set fso = CreateObject("Scripting.FileSystemObject")
+
+strDriveName = fso.GetDriveName("D:\Code\CodeBase")
+
+msgbox strDriveName
+
+strAbsolutePath = fso.GetAbsolutePathName("D:\Code\CodeBase")
+
+msgbox strAbsolutePath
+
+strFileExtensionName = fso.GetExtensionName("D:\Code\CodeBase\metachara.txt")
+
+msgbox strFileExtensionName
+
+strBaseName = fso.GetBaseName("D:\Code\CodeBase\metachara.txt")
+
+msgbox strBaseName
+
+
+
+
+
+
+
+
+
+
+
+
