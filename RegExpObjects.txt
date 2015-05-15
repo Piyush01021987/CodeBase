@@ -1,0 +1,37 @@
+Explain RegExp Object in QTP
+RegExp is a very important object in QTP that can be used to find the patterns in given string using regular expressions.
+
+This object can be created using below syntax.
+Set regExpObject = New RegExp  
+
+RegExp Object supports below properties.
+
+Global Property     - a pattern should match all occurrences in string or just the first one
+IgnoreCase Property - specifies if the search is case-sensitive or not
+Pattern Property    - Sequence of literal characters and special characters (Meta Characters like *,?,+,\b,\d,\n etc)
+
+RegExp Object supports below methods.
+
+Test Method     - returns true if the pattern is found in the given string
+Execute Method  - returns a Matches collection containing a Match object(having properties firstindex and value) for each match found in string.
+Replace Method  - replaces the matched values in the given string by another value
+
+
+Sample Example on Execute method.
+
+'*******************************************************
+ Set regExpObject = New RegExp  
+  search_string = "My Name is piyush chandana and my father's name is Mr. Vishan Kumar Chandana."
+  regExpObject.Pattern = "chandana"
+
+  regExpObject.Ignorecase = true
+  regExpObject.Global = true
+ 
+ Set matches  = regExpObject.execute(search_string)
+
+ For each match in matches
+	print  match.firstIndex & " - " & match.value
+ Next
+'*******************************************************
+In above example we are trying to find the pattern "lucky" in the given string "MS dhoni is very lucky cricketer". 
+We are also printing the position where the match is found.
