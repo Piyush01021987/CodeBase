@@ -16,7 +16,6 @@ Test Method     - returns true if the pattern is found in the given string
 Execute Method  - returns a Matches collection containing a Match object(having properties firstindex and value) for each match found in string.
 Replace Method  - replaces the matched values in the given string by another value
 
-
 Sample Example on Execute method.
 
 '*******************************************************
@@ -76,7 +75,50 @@ Sample Example for Case Sensitive Search
 	print  match.firstIndex & " - " & match.value
  Next
 
- '*****************************************************
- 
- 
+'*****************************************************
+
+'=================================================================================================================================================================
+
+Explain Global property of the RegExp object in QTP:-
+----------------------------------------------------
+
+Global property is used to tell how many matches should be found in the given string.
+
+Examples to understand the global property are given below.
+
+'**********************************************
+'With global = false
+'When we set the global property to false, we get only first match
+'**********************************************
+  Set regExpObject = New RegExp  
+  search_string = "Arjun tendulkar is the son of sachin tendulkar"
+  regExpObject.Pattern = "tendulkar"
+
+  regExpObject.Global = false      
+
+  set matches = regExpObject.execute(search_string)
+
+  print matches.count
+
+'**********************************************
+'output is 1
+'**********************************************
+
+'**********************************************
+'With global = true
+'When we set the global property to true, we get all matches
+'**********************************************
+  Set regExpObject = New RegExp  
+  search_string = "Arjun tendulkar is the son of sachin tendulkar"
+  regExpObject.Pattern = "tendulkar"
+
+  regExpObject.Global = true
+
+  set matches = regExpObject.execute(search_string)
+
+   print matches.count
+
+'**********************************************
+'output is 2
+'********************************************** 
 
