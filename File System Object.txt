@@ -137,8 +137,43 @@ f.Write (contents)
 f.Close
 Set f = nothing
 
+'=================================================================================
 
+Getting Subfolders in a directory:
 
+str = "D:\"
+Set fso = CreateObject("Scripting.FileSystemObject")
+
+Set fo = fso.GetFolder(str)
+
+Set f = fo.Subfolders
+intfolder = 0
+For each i in f
+    msgbox i
+	
+	Set j = i.Subfolders
+	For each k in j 
+		msgbox k
+	Next 
+    intfolder = intfolder + 1
+Next
+
+msgbox intfolder
+
+'====================================================================================
+
+How to copy text file in QTP
+Example -
+
+Below code will copy text file to new location in QTP.
+
+Set Fo = createobject("Scripting.FilesystemObject")
+     
+Fo .CopyFile "c:\mydocuments\letters\abc.txt", "c:\tempfolder\newf.txt"
+
+Set Fo = Nothing
+
+'=====================================================================================
 
 
 
