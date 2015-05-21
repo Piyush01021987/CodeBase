@@ -53,6 +53,90 @@ strBaseName = fso.GetBaseName("D:\Code\CodeBase\metachara.txt")
 msgbox strBaseName
 
 
+'========================================================================================================================
+
+How to create a text file in QTP
+Example -
+
+Below Code will create a  text file  in QTP
+
+Set fso = CreateObject("Scripting.FileSystemObject")
+
+ Set MyFile = fso.CreateTextFile("d:\mytestfile.txt", True)
+
+ MyFile.WriteLine("This is my  test.")
+
+MyFile.Close
+
+
+'=========================================================================================================================
+
+How to delete a folder in QTP
+Example -
+
+Below Code will delete a folder  in QTP.
+
+Set fso = CreateObject("Scripting.FileSystemObject")
+ fso.DeleteFolder("D:\Code")
+Set fso = Nothing
+
+'==========================================================================================================================
+
+How to delete excel file in QTP
+Example -
+
+Below Code will delete Excel file in QTP.
+
+Set fso = CreateObject("Scripting.FileSystemObject")
+ fso.DeleteFile("c:\myfile.xlsx")
+Set fso = Nothing
+
+'==============================================================================
+
+How to Create a Folder in QTP
+Example in QTP -
+
+In below code , we create a folder at C:\sagar
+        
+Environment.Value("ResultFolderPath") = "C:\sagar"
+
+Set Fo = Createobject("Scripting.FilesystemObject")
+If Not Fo.FolderExists(Environment.Value("ResultFolderPath")) Then
+	Fo.CreateFolder (  Environment.Value("ResultFolderPath") )
+End If
+
+'===============================================================================
+
+How to Rename a File in QTP
+Example - 
+
+Below Code will  rename a file strFile to strRename in QTP
+
+Set FSO = CreateObject("Scripting.FileSystemObject")
+strFile = "C:\original.txt"
+strRename = "C:\new.txt"
+
+If FSO.FileExists(strFile) Then
+	FSO.MoveFile strFile, strRename
+End If
+
+Set FSO = Nothing
+
+'================================================================================
+
+How to append contents to text file in QTP
+Example -
+
+Below Code will append data in contents variable to text file  in QTP
+
+content = "This will be in file "
+
+Set Fo = createobject("Scripting.FilesystemObject")
+Set f = Fo.openTextFile("c:\abc.txt",8,true)     'open in append mode
+f.Write (contents)
+f.Close
+Set f = nothing
+
 
 
 
