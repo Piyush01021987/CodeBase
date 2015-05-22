@@ -175,6 +175,64 @@ Set Fo = Nothing
 
 '=====================================================================================
 
+Get the number of files and file name from a folder
+
+Dim iFileCount, FolderName, vFiles, objFSO
+iFileCount = 0
+Set objFSO = CreateObject("Scripting.FileSystemObject")
+Set FolderName = objFSO.GetFolder("C:\Users\piyushc\Desktop") ' Folder Path
+Set vFiles =FolderName.Files
+
+For each vFile in vFiles
+    msgbox vFile
+    iFileCount = iFileCount + 1
+Next
+
+msgbox iFileCount
+
+'======================================================================================
+ How to write data to text file in QTP
+Example -
+
+Below Code will write data  to text file  in QTP
+
+content = "This will be in file "
+
+Set Fo = createobject("Scripting.FilesystemObject")
+Set f = Fo.openTextFile("c:\abc.txt",8,true)     'open in write mode
+f.Write (contents)
+f.Close
+Set f = nothing
+
+'=======================================================================================
+
+How to check if file exists in QTP
+
+In below code , we check if a file  C:\sagar\abc.txt  exists
+       
+Environment.Value("filepath") = "C:\sagar\abc.txt"
+
+Set Fo = createobject("Scripting.FilesystemObject")
+If Not Fo.FileExists(Environment.Value("filepath")) Then
+	print "File does not exist"
+Else
+	print "File does exist"
+End If
+
+'=======================================================================================
+
+How to copy folder in QTP
+Example -
+
+Below code will copy folder  to new location in QTP.
+
+Set Fo = createobject("Scripting.FilesystemObject")
+     
+Fo.CopyFolder "c:\mydocuments\letters\abc", "c:\tempfolder"
+
+Set Fo = Nothing
+
+
 
 
 
